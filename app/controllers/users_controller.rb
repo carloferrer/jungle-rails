@@ -8,9 +8,9 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       byebug
-      redirect_to '/'
+      redirect_to :root
     else
-      redirect_to user[:new]
+      redirect_to '/login'
     end
   end
 
