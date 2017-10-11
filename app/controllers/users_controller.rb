@@ -10,8 +10,7 @@ class UsersController < ApplicationController
       byebug
       redirect_to '/'
     else
-      redirect_to '/signup'
-      byebug
+      redirect_to user[:new]
     end
   end
 
