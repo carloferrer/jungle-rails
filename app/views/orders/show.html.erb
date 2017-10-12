@@ -1,7 +1,7 @@
 <section class="orders-show">
 
   <header class="page-header">
-    <h1>Order #<%= @order.id %></h1>
+    <h1>Order #<%= @order.id %> by <%= @order.email %></h1>
 
   </header>
 
@@ -21,6 +21,7 @@
         </tr>
       </thead>
       <tbody>
+      <% @order_total = 0 %>
         <% @order.line_items.each do |line_item| %>
           <%= render 'item', line_item: line_item %>
         <% end %>
