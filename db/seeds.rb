@@ -144,6 +144,13 @@ User.create!({
   password_digest: '$2a$10$4EUY5fpm1IEn8MYaWTVrEepWUmfkDlA9CvOoTSRM/BFE9A7WVPaOy'
 })
 
+User.create!({
+  first_name: 'Olrac',
+  last_name: 'Rerref',
+  email: 'olrac@rerref.com',
+  password_digest: '$2a$10$4EUY5fpm1IEn8MYaWTVrEepWUmfkDlA9CvOoTSRM/BFE9A7WVPaOy'
+})
+
 ## REVIEWS
 
 prod_rb = Product.find_by(name: 'Red Bookshelf')
@@ -151,5 +158,11 @@ prod_rb.reviews.create!({
   product_id: prod_rb,
   user_id: 1,
   description: 'Pretty tight.',
+  rating: 10
+})
+prod_rb.reviews.create!({
+  product_id: prod_rb,
+  user_id: 2,
+  description: 'Nice one.',
   rating: 10
 })

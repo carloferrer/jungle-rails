@@ -26,6 +26,20 @@
       </div>
     </div>
 
+
   </article>
+
+  <header class="page-header">
+    <h1><%= @product.name %> Reviews</h1>
+  </header>
+
+  <div class="col-sm-4">
+    <% reviews = Review.where(product_id: @product.id) %>
+    <% reviews.each do |r| %>
+    <% reviewer = User.find_by(id: r.user_id) %>
+    <b><%= reviewer.first_name %>'s ( <%= r.rating%> / 10 ) Review:</b><br>
+    <%= r.description %><br><br>
+    <%end%>
+  </div>
 
 </section>
