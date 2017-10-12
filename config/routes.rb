@@ -10,7 +10,11 @@ Rails.application.routes.draw do
     delete :remove_item
   end
 
-  resources :orders, only: [:create, :show]
+  resources :orders, only: [:create, :show] do
+    member do
+      get 'send_receipt', to: 'orders#send_receipt'
+    end
+  end
 
   namespace :admin do
     root to: 'dashboard#show'

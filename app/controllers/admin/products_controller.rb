@@ -1,5 +1,5 @@
 class Admin::ProductsController < ApplicationController
-
+  before_filter :authorize # STARTED AUTHORIZATION BEFORE EMAIL RECEIPTS COMPLETE
   def index
     @products = Product.order(id: :desc).all
   end

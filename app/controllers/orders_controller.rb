@@ -4,6 +4,15 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
   end
 
+  def send_receipt
+    @order = Order.find(params[:id])
+
+    respond_to do |format|
+      Mailer.receipt(@order)
+      format.html {redirect_to(@order, notice: 'Order has been placed.')}
+    end
+  end
+
   def create
     charge = perform_stripe_charge
     order  = create_order(charge)

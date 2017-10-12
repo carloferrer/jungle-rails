@@ -1,5 +1,5 @@
 class Admin::CategoriesController < ApplicationController
-
+before_filter :authorize # STARTED AUTHORIZATION BEFORE EMAIL RECEIPTS COMPLETE
   def index
     @categories = Category.order(id: :desc).all #order categories by descending ID
   end

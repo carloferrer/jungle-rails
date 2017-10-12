@@ -39,8 +39,7 @@
     </table>
   </div>
 
-  <%= link_to "Send Self Receipt", charge_path, class: 'btn btn-lg btn-primary' %>
-  <%byebug%>
+  <%= link_to "Email Receipt", send_receipt_order_path(@order), class: 'btn btn-lg btn-primary' %>
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
 
 </section>
