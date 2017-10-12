@@ -8,8 +8,9 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
 
     respond_to do |format|
-      Mailer.receipt(@order)
+      Mailer.receipt(@order).deliver_now
       format.html {redirect_to(@order, notice: 'Order has been placed.')}
+      # byebug
     end
   end
 
