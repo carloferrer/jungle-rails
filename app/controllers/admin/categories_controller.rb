@@ -1,5 +1,6 @@
 class Admin::CategoriesController < ApplicationController
-before_filter :authorize # STARTED AUTHORIZATION BEFORE EMAIL RECEIPTS COMPLETE
+http_basic_authenticate_with name: ENV['admin_username'], password: ENV['admin_password']
+
   def index
     @categories = Category.order(id: :desc).all #order categories by descending ID
   end
