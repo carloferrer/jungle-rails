@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 ruby "2.3.0"
 
+# https://github.com/excid3/receipts
+gem 'receipts'
 gem 'sqlite3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
