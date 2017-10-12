@@ -1,6 +1,10 @@
 class CartsController < ApplicationController
 
   def show
+    if cart.length!
+      alert("Your cart is empty! Add at least one item.")
+      redirect_to :back
+    end
   end
 
   def add_item
