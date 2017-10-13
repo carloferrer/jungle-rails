@@ -137,6 +137,8 @@ puts "DONE!"
 
 ## USERS
 
+# when unencrypted, all passwords are 'carlo'
+
 User.create!({
   first_name: 'Carlo',
   last_name: 'Ferrer',
