@@ -34,9 +34,11 @@ class OrdersController < ApplicationController
     # empty hash means no products in cart :)
     cart.each do |item|
       product = Product.find_by(id: item[0])
-      product.quantity -= item[1]
+      # byebug
+      product.quantity -= item[1]['quantity']
+      product.save
       puts product.quantity
-    byebug
+      # byebug
     end
     update_cart({})
   end
