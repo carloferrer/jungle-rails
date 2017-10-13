@@ -23,6 +23,7 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
+    @product_id = params['product_id']
     @review = Review.find params[:id]
     @review.destroy
     redirect_to "/products/#{@product_id}"

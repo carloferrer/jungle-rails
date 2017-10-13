@@ -151,18 +151,32 @@ User.create!({
   password_digest: '$2a$10$4EUY5fpm1IEn8MYaWTVrEepWUmfkDlA9CvOoTSRM/BFE9A7WVPaOy'
 })
 
+User.create!({
+  first_name: 'Dude',
+  last_name: 'Guy',
+  email: 'dude@guy.com',
+  password_digest: '$2a$10$4EUY5fpm1IEn8MYaWTVrEepWUmfkDlA9CvOoTSRM/BFE9A7WVPaOy'
+})
+
+User.create!({
+  first_name: 'Guy',
+  last_name: 'Fieri',
+  email: 'guy@fieri.com',
+  password_digest: '$2a$10$4EUY5fpm1IEn8MYaWTVrEepWUmfkDlA9CvOoTSRM/BFE9A7WVPaOy'
+})
+
 ## REVIEWS
 
 prod_rb = Product.find_by(name: 'Red Bookshelf')
 prod_rb.reviews.create!({
   product_id: prod_rb,
   user_id: 1,
-  description: 'Pretty tight.',
-  rating: 10
+  description: 'Hey nice bookshelf.  Real nice.  Bookshelf.',
+  rating: 5
 })
 prod_rb.reviews.create!({
   product_id: prod_rb,
   user_id: 2,
-  description: 'Nice one.',
-  rating: 10
+  description: 'I like red, but blue would be better.  Maybe try making the bookshelf more blue next time.',
+  rating: 3
 })
