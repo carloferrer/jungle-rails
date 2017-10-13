@@ -18,9 +18,11 @@ A mini e-commerce application built with Rails 4.2 for purposes of teaching Rail
 8. Put Stripe (test) keys into appropriate .env vars
 9. Run `bin/rails s -b 0.0.0.0` to start the server
 
-## Testing
+## General Testing
 
-All seeded test-accounts have password 'carlo'.
+All pre-existing / seeded accounts have password 'carlo'.  See the `seeds.db` file for fake account details.
+
+## Receipt Testing
 
 Receipts can be sent to actual email addresses.
   - If you wish to test this, please create an account with the address you wish to have a receipt sent to.
@@ -29,7 +31,9 @@ Receipts can be sent to actual email addresses.
 ## Stripe Testing
 
 Use Credit Card # 4111 1111 1111 1111 for testing success scenarios.
+
 Credit Card expiry can be any MM/YY but cannot be in the past (i.e., if it's Oct 2017, expiry must be 10/17 or greater).
+
 Credit Card CVC must be any 3 integers.
 
 More information in their docs: <https://stripe.com/docs/testing#cards>
