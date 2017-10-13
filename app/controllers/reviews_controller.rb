@@ -17,8 +17,14 @@ class ReviewsController < ApplicationController
     @description = review_params['description']
     @rating = review_params['rating']
 
-
+    # byebug
     @review = Review.create!({product_id: @product_id, user_id: @user_id, description: @description, rating: @rating})
+    redirect_to "/products/#{@product_id}"
+  end
+
+  def destroy
+    @review = Review.find params[:id]
+    @review.destroy
     redirect_to "/products/#{@product_id}"
   end
 
