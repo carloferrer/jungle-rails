@@ -8,7 +8,8 @@
   <body>
 
   <div class="order-summary jumbotron">
-    <h4>Thank you for your order, <%= @email%>!</h4>
+  <%@first_name = User.find_by(email: @email).first_name%>
+    <h4>Thank you for your order, <%= @first_name%>!</h4>
   </div>
 
   <div class="panel panel-default items">
