@@ -20,7 +20,9 @@ A mini e-commerce application built with Rails 4.2 for purposes of teaching Rail
 
 ## General Testing
 
-All pre-existing / seeded accounts have password 'carlo'.  See the `seeds.db` file for fake account details.
+All pre-existing / seeded accounts have password `carlo`.  See the `seeds.db` file for fake account details.
+
+After setting up `.env` per the instructions, Admin pages may be accessed with username: `Jungle` and password: `book`.
 
 ## Receipt Testing
 
