@@ -9,8 +9,6 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    # raise "Hello - from, Review."
-    # @user_id = session[:user_id]
 
     @user_id = current_user.id
     @product_id = params['product_id']

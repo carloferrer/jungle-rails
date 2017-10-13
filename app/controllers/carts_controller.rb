@@ -9,13 +9,20 @@ class CartsController < ApplicationController
 
   def add_item
     product_id = params[:product_id].to_s
-
-    item = cart[product_id] || { "quantity" => 0 }
-    item["quantity"] += 1
-    cart[product_id] = item
-    update_cart cart
-
-    redirect_to :back
+    product_quantity = Product.find_by(id: product_id).quantity
+    if product_quantity > 0
+      item = cart[product_id] || { "quantity" => 0 }
+      if item['quantity'] < product_quantity
+        item["quantity"] += 1
+        cart[product_id] = item
+        update_cart cart
+        redirect_to :back
+      else
+        redirect_to :back
+      end
+    else
+      render html: "<script>alert('You can't add this item to cart when there are none left!')</script>".html_safe
+    end
   end
 
   def remove_item
