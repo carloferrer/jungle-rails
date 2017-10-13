@@ -22,8 +22,13 @@
   </aside>
 
   <% if product.quantity == 0 %>
-  <aside class="quantity">
-    SOLD OUT!
-  </aside>
+    <aside class="quantity">
+      SOLD OUT!
+    </aside>
+  <% else %>
+    <aside class="quantity">
+      ONLY <%= product.quantity %> LEFT!
+    </aside>
   <% end %>
+
 </article>

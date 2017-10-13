@@ -10,7 +10,6 @@ class OrdersController < ApplicationController
     respond_to do |format|
       Mailer.receipt(@order).deliver_now
       format.html {redirect_to(@order, notice: 'Order has been placed.')}
-      # byebug
     end
   end
 
@@ -33,6 +32,12 @@ class OrdersController < ApplicationController
 
   def empty_cart!
     # empty hash means no products in cart :)
+    cart.each do |item|
+      product = Product.find_by(id: item[0])
+      product.quantity -= item[1]
+      puts product.quantity
+    byebug
+    end
     update_cart({})
   end
 
