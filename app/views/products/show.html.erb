@@ -68,8 +68,12 @@
     <% reviews.each do |r| %>
       <% reviewer = User.find_by(id: r.user_id) %>
       <b><%= reviewer.first_name %>'s ( <%= r.rating%> / 5 ) Review:</b><br>
-      <%= r.description %><br>
-      <%= link_to fa_icon('trash'), "/products/#{@product.id}/reviews/#{r.id}", class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %><br><br>
+      <%= r.description %>
+      <% if current_user.id == r.user_id %>
+        <br>
+        <%= link_to fa_icon('trash'), "/products/#{@product.id}/reviews/#{r.id}", class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
+      <% end %>
+      <br><br>
     <%end%>
   </div>
 
