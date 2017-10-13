@@ -35,7 +35,7 @@
     <%= form_for :review, url: "/products/#{@product.id}/reviews" do |f|%>
 
       <div class="row">
-      <div class="col-sm-6 col-sm-offset-1">
+      <div class="col-sm-6 ">
 
         <div class="form-group">
         <%= hidden_field :product_id, @product.id %>
@@ -64,11 +64,11 @@
     <h2><%= @product.name %>: Reviews</h2>
   </header>
 
-  <div class="col-sm-offset-1">
+  <div class="">
     <% reviews = Review.where(product_id: @product.id).reverse %>
 
       <%if reviews.length == 0%>
-        There are no reviews for this product.  Be the first to review!
+        <h3>There are no reviews for this product.  Be the first to review!</h3>
         <br><br>
       <%else%>
 
@@ -76,10 +76,11 @@
           <% reviewer = User.find_by(id: r.user_id) %>
           <b><%= reviewer.first_name %>'s ( <%= r.rating%> / 5 ) Review:</b><br>
           <%= r.description %>
-
-          <% if current_user.id == r.user_id %>
-            <br>
-            <%= link_to 'DELETE REVIEW', "/products/#{@product.id}/reviews/#{r.id}", class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
+          <% if current_user %>
+            <% if current_user.id == r.user_id %>
+              <br>
+              <%= link_to 'DELETE REVIEW', "/products/#{@product.id}/reviews/#{r.id}", class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
+            <% end %>
           <% end %>
 
           <br><br>
