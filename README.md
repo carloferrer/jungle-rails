@@ -21,6 +21,7 @@ A mini e-commerce application built with Rails 4.2 for purposes of teaching Rail
 ## Testing
 
 All seeded test-accounts have password 'carlo'.
+
 Receipts can be sent to actual email addresses.
   - If you wish to test this, please create an account with the address you wish to have a receipt sent to.
   - As well, please modify the .env file to ensure that a valid gmail account is used to 'send' emails from.
