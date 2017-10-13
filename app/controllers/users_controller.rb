@@ -9,7 +9,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to :root
     else
-      redirect_to '/login'
+      redirect_to '/users/new'
     end
   end
 
