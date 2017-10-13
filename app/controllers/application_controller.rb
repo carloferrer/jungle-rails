@@ -14,7 +14,6 @@ class ApplicationController < ActionController::Base
   #   redirect_to '/login' unless current_user
   # end
 
-
   def cart
     # value = cookies[:cart] || JSON.generate({})
     @cart ||= cookies[:cart].present? ? JSON.parse(cookies[:cart]) : {}

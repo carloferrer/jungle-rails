@@ -2,7 +2,7 @@ class ReviewsController < ApplicationController
   before_action :require_login
 
   def require_login
-    # byebug
+
     if !current_user
       redirect_to "/products/#{@product_id}"
     end
